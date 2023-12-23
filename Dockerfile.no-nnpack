@@ -5,6 +5,7 @@ RUN git clone --recursive https://github.com/pytorch/pytorch /pytorch
 RUN pip install --break-system-packages --no-cache-dir flask wheel numpy phonemizer inflect unidecode scipy
 ENV _GLIBCXX_USE_CXX11_ABI=1 USE_NNPACK=0 USE_CUDA=0 USE_ROCM=0
 WORKDIR /pytorch
+RUN pip install -r requirements.txt
 RUN python3 setup.py install
 RUN mkdir /glados-tts/audio
 WORKDIR /glados-tts
